@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "e0893d29-cacc-4afd-a25f-7fca40b4b078",
+		"name": "parkingslot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4464319"
+	},
+	"item": [
+		{
+			"name": "create slot booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|67rKYEf1l1OY2QPhSWJaJK4qdYQBwXLz9BMKF6ks",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "rishav1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "rishav11@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rishav@1234",
+							"type": "text"
+						},
+						{
+							"key": "license",
+							"type": "file",
+							"src": "/C:/Users/ASUS/Downloads/Parking Slot Appointment - online.pdf"
+						},
+						{
+							"key": "vehicleno",
+							"value": "KL04AS0056",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7025588704",
+							"type": "text"
+						},
+						{
+							"key": "start_time",
+							"value": "2023-12-23 12:10",
+							"type": "text"
+						},
+						{
+							"key": "end_time",
+							"value": "2023-12-24 15:10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sync Centre",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 345|UMZdMeiWeCsqihlqgIgWRZ2x04r9DypJjtFEPwUr",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/sync/centre",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"sync",
+								"centre"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 May 2022 14:45:10 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 May 2022 14:45:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.24"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"common.centre_synced\"\n}"
+				}
+			]
+		}
+	]
+}
