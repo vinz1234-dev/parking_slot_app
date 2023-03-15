@@ -52,28 +52,23 @@ class UserRepository
         $fine = 0;
         $calctime = $totaltime - 150;
         if ($calctime > 0) {
-            $extraHours = $calctime / 30;
-            $extraMinutes = $calctime % 30;
-            if($extraMinutes > 0) {
-                $extraFee = ($extraHours * 5) + 5;
-            } else {
-                $extraFee = $extraHours * 5;
-            }
+            $extraHours = ceil($calctime / 30);
+            $extraFee = $extraHours * 5;
         }
-        if($totaltime > 3600) {
-            $fineDays = ($totaltime - 3600) / 3600;
-            $fineHours = ($totaltime - 3600) % 3600;
-            if ($fineHours > 0) {
-                $fine = ($fineDays * 100) + 100;
-            } else {
-                $fine = $fineDays * 100;
-            }
+        if($totaltime > 1440) {
+            $fineDays = ceil(($totaltime - 1440) / 1440);
+            $fine = $fineDays * 100;
         }
         $totalFare = $baseFare + $extraFee + $fine;
         $slot->status = 1;
         $slot->update();
+        $user->slot = $slot->name;
         $user->token = $user->createToken('asApp')->plainTextToken;
-        $user->fare = $totalFare;
+        $user->total_time = $totaltime . " Minutes";
+        $user->base_fare = $baseFare;
+        $user->extra_fare = $extraFee;
+        $user->fine = $fine;
+        $user->total_fare = $totalFare;
         return $user;
     }
 }

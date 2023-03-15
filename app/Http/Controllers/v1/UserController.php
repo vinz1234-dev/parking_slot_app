@@ -38,13 +38,13 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'email',
+            'email' => 'email|unique:users',
             'phone' => 'required|numeric|unique:users',
             'vehicleno' => 'required|alpha_num|unique:users',
             'password' => 'required|min:6',
             'license' => 'required|mimes:pdf|max:2048',
             'start_time' => 'required|date_format:Y-m-d H:i',
-            'end_time' => 'required|date_format:Y-m-d H:i',
+            'end_time' => 'required|date_format:Y-m-d H:i|after:start_time',
         ]);
         $users = $this->userRepository->create($request->all(), $request->file('license'));
         return $users;
