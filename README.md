@@ -8,7 +8,7 @@
     DB_DATABASE=parking_slot_db
     DB_USERNAME=root
     DB_PASSWORD=
-3. Download the project (it have vendor folders also so not need to do composer install)
+3. Download the project : master branch (it have vendor folders also so not need to do composer install)
 4. Migrate DB 
      php artisan migrate
 5. uploaded postman collection of api in the root folder
